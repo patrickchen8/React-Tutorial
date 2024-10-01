@@ -1,11 +1,12 @@
+import Card from './Card.jsx';
 
 function CourseList(props) {
 
     const courseList = Object.entries(props.courses);
 
-    return ( <div>
+    return ( <div className="flex flex-wrap justify-around content-between">
         {courseList.map(([id, info]) => (
-            <p key={id}> {`${info.term} CS ${info.number}: ${info.title}`} </p>)
+           <Card key={id} info={info}/>)
         )}
     </div>);
 
