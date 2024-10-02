@@ -5,7 +5,14 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      gridAutoRows : {
+        '14': '14rem'
+      }, 
+      gridTemplateColumns : {
+        'auto-fill': 'repeat(auto-fill, 18rem)'
+      }
+    },
   },
   plugins: [],
 }

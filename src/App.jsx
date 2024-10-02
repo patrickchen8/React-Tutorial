@@ -34,7 +34,10 @@ const App = () => {
 
   return (<>
     <Banner title={schedule.title}/>
-    <CourseList courses={schedule.courses}/>
+    <div className= "md:block flex justify-center">
+      <CourseList courses={schedule.courses}/>
+    </div>
+    
   </>);
 };
 
