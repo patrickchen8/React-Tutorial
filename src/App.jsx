@@ -6,14 +6,16 @@ const App = () => {
   const url = 'https://courses.cs.northwestern.edu/394/guides/data/cs-courses.php';
   const [data, isLoading, error] = useJsonQuery(url);
 
-  if(isLoading) {
-    return (<></>);
-  }
-  
+
   if(error) {
     return (<h1 className="text-2xl font-bold text-red-600 text-center"> AN ERROR OCCURED!</h1>);
   }
-
+  if(isLoading) {
+    return (<></>);
+  }
+  if(!data) {
+    return (<h1 className="text-2xl font-bold text-red-600 text-center"> NO DATA FOUND!</h1>)
+  }
   const schedule = data;
 
   return (<>
