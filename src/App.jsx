@@ -6,8 +6,10 @@ import { useState } from "react";
 
 
 const App = () => {
+  const [term, setTerm] = useState("Fall");
+
   const url = 'https://courses.cs.northwestern.edu/394/guides/data/cs-courses.php';
-  const [data, isLoading, error] = useJsonQuery(url);
+  const [schedule, isLoading, error] = useJsonQuery(url);
 
 
   if(error) {
@@ -16,13 +18,9 @@ const App = () => {
   if(isLoading) {
     return (<></>);
   }
-  if(!data) {
-    return (<h1 className="text-2xl font-bold text-red-600 text-center"> NO DATA FOUND!</h1>)
+  if(!schedule) {
+    return (<h1 className="text-2xl font-bold text-red-600 text-center"> NO DATA FOUND!</h1>);
   }
-  const schedule = data;
-
-
-  const [term, setTerm] = useState("Fall");
 
 
   return (<>
