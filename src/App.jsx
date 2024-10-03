@@ -1,6 +1,8 @@
 import Banner from './components/Banner.jsx'
 import CourseList from './components/CourseList.jsx'
 import {useJsonQuery} from './utilities/fetch.js'
+import { useState } from "react";
+
 
 const App = () => {
   const url = 'https://courses.cs.northwestern.edu/394/guides/data/cs-courses.php';
@@ -18,12 +20,10 @@ const App = () => {
   }
   const schedule = data;
 
+
   return (<>
     <Banner title={schedule.title}/>
-    <div className= "md:block flex justify-center">
-      <CourseList courses={schedule.courses}/>
-    </div>
-    
+    <CourseList courses={schedule.courses}/>
   </>);
 };
 
