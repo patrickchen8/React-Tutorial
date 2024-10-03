@@ -2,7 +2,7 @@ import Card from './Card.jsx';
 
 function CourseList(props) {
 
-    const courseList = Object.entries(props.courses);
+    const courseList = Object.entries(props.courses).filter((course) => course[1].term === props.term);
 
     return ( 
     <div className= "md:block flex justify-center">

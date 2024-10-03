@@ -1,5 +1,6 @@
 import Banner from './components/Banner.jsx'
 import CourseList from './components/CourseList.jsx'
+import TermFilter from './components/TermFilter.jsx'
 import {useJsonQuery} from './utilities/fetch.js'
 import { useState } from "react";
 
@@ -21,9 +22,13 @@ const App = () => {
   const schedule = data;
 
 
+  const [term, setTerm] = useState("Fall");
+
+
   return (<>
     <Banner title={schedule.title}/>
-    <CourseList courses={schedule.courses}/>
+    <TermFilter term={term} setTerm={setTerm}/>
+    <CourseList courses={schedule.courses} term={term}/>
   </>);
 };
 
