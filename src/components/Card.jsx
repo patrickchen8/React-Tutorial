@@ -1,8 +1,6 @@
 
 function Card(props) {
-
     const courseID = `${props.info.term} CS ${props.info.number}`;
-
 
     return (<div className="flex flex-col border-2 border-gray-400 border-solid rounded-md shadow-lg shadow-slate-400 p-4 cursor-pointer">
         <h2 className="text-xl font-bold mb-4">{courseID}</h2>
