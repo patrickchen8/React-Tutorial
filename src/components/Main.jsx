@@ -14,6 +14,13 @@ function Main(props) {
             .map((courseId) => [courseId, false])
     ));
 
+    const selectedCourseList = Object.entries(props.courses)
+                                    .filter((course) => selected[course[0]])
+                                    .map(([courseId, courseInfo]) => <p key={courseId} className="text-wrap">
+                                            {`${courseInfo.term} CS ${courseInfo.number}: ${courseInfo.title} ${courseInfo.meets}`}
+                                        </p>);
+
+    console.log(selectedCourseList);
 
     return ( 
     <main>
@@ -21,7 +28,7 @@ function Main(props) {
             <TermFilter term={term} setTerm={setTerm}/>
             <ModalButton open={open} setOpen={setOpen}/>
         </div>
-        <Modal open={open} setOpen={setOpen}/>
+        <Modal open={open} setOpen={setOpen} children={selectedCourseList}/>
         <CourseList courseList={courseList} selected={selected} setSelected={setSelected}/>
         
         

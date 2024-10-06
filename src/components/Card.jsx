@@ -5,7 +5,6 @@ function Card(props) {
     const handleClick = (e) => {
         const courseId = e.target.id;
         props.setSelected((prev) => {
-            console.log(prev);
             return {... prev, [courseId]: !prev[courseId]};})
     }
 
