@@ -1,7 +1,7 @@
 
 function TermFilter(props) {
     return (
-        <div className="text-center mb-4">
+        <div className="mb-4">
 
             <input type="radio" 
                 name="term" 
