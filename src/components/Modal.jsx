@@ -16,7 +16,12 @@ function Modal(props) {
                         Close
                     </button>
 
-                    {props.children.length > 0 ? <div className="flex flex-col items-center space-y-2"> {props.children} </div> : 
+                    {props.children.length > 0 ? <div className="flex flex-col items-center space-y-2"> 
+                                                    {props.children
+                                                        .map(([courseId, courseInfo]) => <p key={courseId} className="text-wrap">
+                                                                {`${courseInfo.term} CS ${courseInfo.number}: ${courseInfo.title} ${courseInfo.meets}`}
+                                                         </p>)} 
+                                                </div> : 
                                                 <p className="text-center">Click on the courses to select them to view them in the schedule</p>}
 
                 </div>

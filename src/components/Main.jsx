@@ -9,19 +9,19 @@ function Main(props) {
     const [term, setTerm] = useState("Fall");
     const courseList = Object.entries(props.courses).filter((course) => course[1].term === term);
 
-    const [selected, setSelected] = useState(Object.fromEntries(
+    const [isSelected, setIsSelected] = useState(Object.fromEntries(
         Object.keys(props.courses)
             .map((courseId) => [courseId, false])
     ));
 
+    const [canSelect, setCanSelect] = useState(Object.fromEntries(
+        Object.keys(props.courses)
+            .map((courseId) => [courseId, true])
+    ));
+
     const selectedCourseList = Object.entries(props.courses)
-                                    .filter((course) => selected[course[0]])
-                                    .map(([courseId, courseInfo]) => <p key={courseId} className="text-wrap">
-                                            {`${courseInfo.term} CS ${courseInfo.number}: ${courseInfo.title} ${courseInfo.meets}`}
-                                        </p>);
-
-    console.log(selectedCourseList);
-
+                                    .filter((course) => isSelected[course[0]]);
+                                    
     return ( 
     <main>
         <div className="flex flex-wrap justify-between items-center mx-12 mb-4">
@@ -29,7 +29,7 @@ function Main(props) {
             <ModalButton open={open} setOpen={setOpen}/>
         </div>
         <Modal open={open} setOpen={setOpen} children={selectedCourseList}/>
-        <CourseList courseList={courseList} selected={selected} setSelected={setSelected}/>
+        <CourseList courseList={courseList} isSelected={isSelected} setIsSelected={setIsSelected} canSelect={canSelect}/>
         
         
     </main>);
