@@ -3,6 +3,7 @@ import TermFilter from './TermFilter.jsx';
 import Modal from './Modal.jsx';
 import ModalButton from './ModalButton.jsx';
 import { useState } from "react";
+//import { catchConflict } from '../utilites/conflict.js';
 
 function Main(props) {
     const [open, setOpen] = useState(false);
@@ -14,10 +15,6 @@ function Main(props) {
             .map((courseId) => [courseId, false])
     ));
 
-    const [canSelect, setCanSelect] = useState(Object.fromEntries(
-        Object.keys(props.courses)
-            .map((courseId) => [courseId, true])
-    ));
 
     const selectedCourseList = Object.entries(props.courses)
                                     .filter((course) => isSelected[course[0]]);
@@ -28,8 +25,13 @@ function Main(props) {
             <TermFilter term={term} setTerm={setTerm}/>
             <ModalButton open={open} setOpen={setOpen}/>
         </div>
+
         <Modal open={open} setOpen={setOpen} children={selectedCourseList}/>
-        <CourseList courseList={courseList} isSelected={isSelected} setIsSelected={setIsSelected} canSelect={canSelect}/>
+        <CourseList courseList={courseList} 
+                    isSelected={isSelected} 
+                    setIsSelected={setIsSelected}
+                    selected={selectedCourseList}
+                    courses={props.courses}/>
         
         
     </main>);
