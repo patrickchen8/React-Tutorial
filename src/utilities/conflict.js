@@ -12,7 +12,11 @@ export const catchConflict = (courses, selected) => {
             .forEach((key) => {
                 const course2Info = courses[key];
                 const [days2, time2] = course2Info.meets.split(' ');
-
+                
+                if(key == 'F211') {
+                    console.log(dayOverlap(days1, days2));
+                    console.log(timeOverlap(time1, time2));
+                }
 
                 if(key !== course1Id && 
                     course1Info.term === course2Info.term &&
@@ -49,7 +53,9 @@ const timeOverlap = (times1, times2) => {
     const [start2, end2] = times2.split('-'); 
 
     return covertToMinutes(start1) <= covertToMinutes(start2) && 
-        covertToMinutes(start2) <= covertToMinutes(end1);
+            covertToMinutes(start2) <= covertToMinutes(end1) ||
+            covertToMinutes(start2) <= covertToMinutes(start1) &&
+            covertToMinutes(start1) <= covertToMinutes(end2);
 }
 
 
