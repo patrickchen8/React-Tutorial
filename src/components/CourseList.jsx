@@ -8,9 +8,7 @@ function CourseList(props) {
             .map((courseId) => [courseId, true])
     ) : catchConflict(props.courses, props.selected);
 
-    console.log(canSelect);
     
-
     return (
     <div className= "md:block flex justify-center">
         <div className="grid grid-cols-auto-fill auto-rows-14 gap-x-16 gap-y-8 mx-12">

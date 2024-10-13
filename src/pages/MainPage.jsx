@@ -1,9 +1,9 @@
-import CourseList from './CourseList.jsx';
-import TermFilter from './TermFilter.jsx';
-import Modal from './Modal.jsx';
-import ModalButton from './ModalButton.jsx';
+import CourseList from '../components/CourseList.jsx';
+import TermFilter from '../components/TermFilter.jsx';
+import Modal from '../components/Modal.jsx';
+import ModalButton from '../components/ModalButton.jsx';
 import { useState } from "react";
-//import { catchConflict } from '../utilites/conflict.js';
+
 
 function Main(props) {
     const [open, setOpen] = useState(false);

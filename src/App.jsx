@@ -1,6 +1,8 @@
 import Banner from './components/Banner.jsx'
-import Main from './components/Main.jsx'
+import MainPage from './pages/MainPage.jsx'
+import FormPage from './pages/FormPage.jsx'
 import {useJsonQuery} from './utilities/fetch.js'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 
 
@@ -22,7 +24,13 @@ const App = () => {
 
   return (<>
     <Banner title={schedule.title}/>
-    <Main courses={schedule.courses}/>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainPage courses={schedule.courses}/>} />
+        <Route path="/edit/:courseId" element={<FormPage />} />
+      </Routes>
+    </BrowserRouter>
+    
   </>);
 };
 
