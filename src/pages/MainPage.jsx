@@ -22,8 +22,8 @@ function Main(props) {
     return ( 
     <main>
         <div className="flex flex-wrap justify-between items-center mx-12 mb-4">
-            <TermFilter term={term} setTerm={setTerm}/>
             <ModalButton open={open} setOpen={setOpen}/>
+            <TermFilter term={term} setTerm={setTerm}/>
         </div>
 
         <Modal open={open} setOpen={setOpen} children={selectedCourseList}/>
@@ -31,7 +31,8 @@ function Main(props) {
                     isSelected={isSelected} 
                     setIsSelected={setIsSelected}
                     selected={selectedCourseList}
-                    courses={props.courses}/>
+                    courses={props.courses}
+                    user={props.user}/>
         
         
     </main>);

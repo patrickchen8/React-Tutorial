@@ -17,9 +17,7 @@ function Card(props) {
                 onClick={(e) => {handleClick(e)}}>
         <div className="flex justify-between">
             <h2 className="text-xl font-bold mb-4">{courseName}</h2>
-            <Link to={`/edit/${props.courseId}`}>
-                <CiEdit size="25"/>
-            </Link>
+            {props.user && <Link to={`/edit/${props.courseId}`}> <CiEdit size="25"/> </Link>}
         </div>
         
         <p className="mb-auto">{props.info.title}</p>

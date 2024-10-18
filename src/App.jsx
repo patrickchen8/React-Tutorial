@@ -1,12 +1,12 @@
 import Banner from './components/Banner.jsx'
 import MainPage from './pages/MainPage.jsx'
 import FormPage from './pages/FormPage.jsx'
-import { useDbData } from './utilities/firebase.js'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-
+import { useDbData, useAuthState } from './utilities/firebase.js'
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
 
 
 const App = () => {
+  const [user] = useAuthState();
   const [data, error] = useDbData('/');
 
   if (error) return <h1 className="text-red-500 text-2xl text-center">Error loading data: {error.toString()}</h1>;
@@ -15,10 +15,10 @@ const App = () => {
 
 
   return (<>
-    <Banner title={data.title}/>
+    <Banner user={user} title={data.title}/>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<MainPage courses={data.courses}/>} />
+        <Route path="/" element={<MainPage user={user} courses={data.courses}/>} />
         <Route path="/edit/:courseId" element={<FormPage />} />
       </Routes>
     </BrowserRouter>

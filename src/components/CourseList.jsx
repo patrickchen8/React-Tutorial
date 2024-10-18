@@ -18,7 +18,8 @@ function CourseList(props) {
                  info={info} 
                  isSelected={props.isSelected[courseId]} 
                  setIsSelected={props.setIsSelected}
-                 canSelect={canSelect[courseId]}/>)
+                 canSelect={canSelect[courseId]}
+                 user={props.user}/>)
             )}
         </div>
     </div>);
