@@ -112,5 +112,6 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/react,firebase,visualstudiocode,macos,windows
 
-#Remove firebase.ks
-src/firebase.js
+#Remove sensitive firebase file
+src/utilities/firebase.js
+database.rules.json
