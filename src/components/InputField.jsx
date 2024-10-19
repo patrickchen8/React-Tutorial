@@ -14,7 +14,7 @@ function InputField(props) {
                    className="placeholder-black border-2 border-purple-600 focus:border-2 focus:border-purple-400 outline-none rounded-md p-2"
                    required/>
 
-            {props.state?.errors?.[props.name] && <p className="text-red-500 text-lg"> {props.state?.errors?.[props.name]} </p>}
+            <p className="text-red-500 text-lg h-4"> {props.state?.errors?.[props.name]} </p>
 
         </div>
     );
