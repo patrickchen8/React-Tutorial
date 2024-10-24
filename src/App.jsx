@@ -13,12 +13,13 @@ const App = () => {
   if (data === undefined) return <h1 className="text-purple-400 text-2xl text-center">Loading data...</h1>;
   if (!data) return <h1 className="text-red-500 text-2xl text-center">No data found</h1>;
 
+  const isAdmin = Object.hasOwn(data.admins, user?.uid);
 
   return (<>
     <Banner user={user} title={data.title}/>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<MainPage user={user} courses={data.courses}/>} />
+        <Route path="/" element={<MainPage isAdmin={isAdmin} courses={data.courses}/>} />
         <Route path="/edit/:courseId" element={<FormPage />} />
       </Routes>
     </BrowserRouter>

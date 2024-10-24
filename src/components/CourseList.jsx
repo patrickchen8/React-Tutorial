@@ -19,7 +19,7 @@ function CourseList(props) {
                  isSelected={props.isSelected[courseId]} 
                  setIsSelected={props.setIsSelected}
                  canSelect={canSelect[courseId]}
-                 user={props.user}/>)
+                 isAdmin={props.isAdmin}/>)
             )}
         </div>
     </div>);

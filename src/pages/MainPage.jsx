@@ -32,7 +32,7 @@ function Main(props) {
                     setIsSelected={setIsSelected}
                     selected={selectedCourseList}
                     courses={props.courses}
-                    user={props.user}/>
+                    isAdmin={props.isAdmin}/>
         
         
     </main>);
